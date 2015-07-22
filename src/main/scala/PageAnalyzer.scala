@@ -1,13 +1,14 @@
 import com.ning.http.client.AsyncHttpClient
 import dispatch._
 
-import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 import scala.language.postfixOps
 import scala.util.{Failure, Success, Try}
 import scala.xml.XML._
 
 trait RandomApiClient {
+
+  implicit def executionContext: ExecutionContext
 
   val apiUrl: String
 
